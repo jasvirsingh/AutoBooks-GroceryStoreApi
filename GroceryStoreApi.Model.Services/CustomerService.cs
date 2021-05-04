@@ -2,6 +2,8 @@
 using GroceryStore.Data.Access.Interfaces;
 using GroceryStore.Domain;
 using GroceryStore.Services.Interfaces;
+using GroceryStoreApi.Infrastructure;
+using GroceryStoreApi.Infrastructure.Exceptions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,6 +31,17 @@ namespace GroceryStore.Services
 
         public async Task<Customer> GetById(int id)
         {
+            var validations = new List<ValidationResult>();
+            if( id <= 0)
+            {
+                validations.Add(new ValidationResult("Customer id is required"));
+            }
+            
+            if(validations.Any())
+            {
+                throw new RqValidationFailedException(validations);
+            }
+
             var customer = await _customerRepository.GetById(id);
 
             return customer == null ? null :new Customer
@@ -40,6 +53,17 @@ namespace GroceryStore.Services
 
         public async Task<Customer> Add(Customer customer)
         {
+            var validations = new List<ValidationResult>();
+            if (string.IsNullOrWhiteSpace(customer.Name))
+            {
+                validations.Add(new ValidationResult("Customer name is required"));
+            }
+
+            if (validations.Any())
+            {
+                throw new RqValidationFailedException(validations);
+            }
+
             var dbCustomer = await _customerRepository.Add(new CustomerEntity
             {
                 Id = customer.Id,
@@ -55,6 +79,21 @@ namespace GroceryStore.Services
 
         public async Task Update(Customer customer)
         {
+            var validations = new List<ValidationResult>();
+            if (customer.Id <= 0)
+            {
+                validations.Add(new ValidationResult("Customer id is required"));
+            }
+            if (string.IsNullOrWhiteSpace(customer.Name))
+            {
+                validations.Add(new ValidationResult("Customer name is required"));
+            }
+
+            if (validations.Any())
+            {
+                throw new RqValidationFailedException(validations);
+            }
+
             await _customerRepository.Update(new CustomerEntity
             {
                 Id = customer.Id,
@@ -64,7 +103,17 @@ namespace GroceryStore.Services
 
         public async Task Delete(int id)
         {
-           await _customerRepository.Delete(id);
+            var validations = new List<ValidationResult>();
+            if (id <= 0)
+            {
+                validations.Add(new ValidationResult("Customer id is required"));
+            }
+            if (validations.Any())
+            {
+                throw new RqValidationFailedException(validations);
+            }
+
+            await _customerRepository.Delete(id);
         }
     }
 }

@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroceryStoreAPI", "GroceryStoreAPI\GroceryStoreAPI.csproj", "{471ACB33-0A48-406A-8735-F9E2ECBA8817}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroceryStoreApi.UnitTest", "GroceryStoreApi.UnitTest\GroceryStoreApi.UnitTest.csproj", "{043FF219-61BF-4E57-8B53-CACB93B1DBD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroceryStoreApi.UnitTests", "GroceryStoreApi.UnitTests\GroceryStoreApi.UnitTests.csproj", "{043FF219-61BF-4E57-8B53-CACB93B1DBD8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroceryStore.Data", "GroceryStore.Data\GroceryStore.Data.csproj", "{B2304B27-BBF7-41A5-9F04-E0BED2545791}"
 EndProject
@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroceryStoreApi.Model", "Gr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroceryStoreApi.Model.Services", "GroceryStoreApi.Model.Services\GroceryStoreApi.Model.Services.csproj", "{A0E0163F-7978-4B22-907B-355BD5BF2E80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroceryStoreApi.Infrastructure", "GroceryStoreApi.Infrastructure\GroceryStoreApi.Infrastructure.csproj", "{CBFB50AE-2687-44D3-861B-16D33635F175}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroceryStoreApi.Infrastructure", "GroceryStoreApi.Infrastructure\GroceryStoreApi.Infrastructure.csproj", "{CBFB50AE-2687-44D3-861B-16D33635F175}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
