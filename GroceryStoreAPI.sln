@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30320.27
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroceryStoreAPI", "GroceryStoreAPI\GroceryStoreAPI.csproj", "{471ACB33-0A48-406A-8735-F9E2ECBA8817}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroceryStoreApi.UnitTest", "GroceryStoreApi.UnitTest\GroceryStoreApi.UnitTest.csproj", "{043FF219-61BF-4E57-8B53-CACB93B1DBD8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroceryStore.Data", "GroceryStore.Data\GroceryStore.Data.csproj", "{B2304B27-BBF7-41A5-9F04-E0BED2545791}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroceryStore.Data.Access", "GroceryStore.Data.Access\GroceryStore.Data.Access.csproj", "{DB1C1109-DD25-4BE4-B776-38EE60A5295F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroceryStoreApi.Model", "GroceryStoreApi.Model\GroceryStoreApi.Model.csproj", "{DF0C223A-7689-4E4E-83FC-6E74D36210B8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroceryStoreApi.Model.Services", "GroceryStoreApi.Model.Services\GroceryStoreApi.Model.Services.csproj", "{A0E0163F-7978-4B22-907B-355BD5BF2E80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroceryStoreApi.Infrastructure", "GroceryStoreApi.Infrastructure\GroceryStoreApi.Infrastructure.csproj", "{CBFB50AE-2687-44D3-861B-16D33635F175}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{471ACB33-0A48-406A-8735-F9E2ECBA8817}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{471ACB33-0A48-406A-8735-F9E2ECBA8817}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{471ACB33-0A48-406A-8735-F9E2ECBA8817}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{471ACB33-0A48-406A-8735-F9E2ECBA8817}.Release|Any CPU.Build.0 = Release|Any CPU
+		{043FF219-61BF-4E57-8B53-CACB93B1DBD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{043FF219-61BF-4E57-8B53-CACB93B1DBD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{043FF219-61BF-4E57-8B53-CACB93B1DBD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{043FF219-61BF-4E57-8B53-CACB93B1DBD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2304B27-BBF7-41A5-9F04-E0BED2545791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2304B27-BBF7-41A5-9F04-E0BED2545791}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2304B27-BBF7-41A5-9F04-E0BED2545791}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2304B27-BBF7-41A5-9F04-E0BED2545791}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB1C1109-DD25-4BE4-B776-38EE60A5295F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB1C1109-DD25-4BE4-B776-38EE60A5295F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB1C1109-DD25-4BE4-B776-38EE60A5295F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB1C1109-DD25-4BE4-B776-38EE60A5295F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF0C223A-7689-4E4E-83FC-6E74D36210B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF0C223A-7689-4E4E-83FC-6E74D36210B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF0C223A-7689-4E4E-83FC-6E74D36210B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF0C223A-7689-4E4E-83FC-6E74D36210B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0E0163F-7978-4B22-907B-355BD5BF2E80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0E0163F-7978-4B22-907B-355BD5BF2E80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0E0163F-7978-4B22-907B-355BD5BF2E80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0E0163F-7978-4B22-907B-355BD5BF2E80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBFB50AE-2687-44D3-861B-16D33635F175}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBFB50AE-2687-44D3-861B-16D33635F175}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBFB50AE-2687-44D3-861B-16D33635F175}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBFB50AE-2687-44D3-861B-16D33635F175}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {72187AA2-D41B-4C08-BB1E-BFD763AA9C2F}
+	EndGlobalSection
+EndGlobal

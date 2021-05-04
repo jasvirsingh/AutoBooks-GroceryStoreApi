@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.7" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GroceryStore.Data.Access\GroceryStore.Data.Access.csproj" />
+    <ProjectReference Include="..\GroceryStoreApi.Infrastructure\GroceryStoreApi.Infrastructure.csproj" />
+    <ProjectReference Include="..\GroceryStoreApi.Model.Services\GroceryStoreApi.Model.Services.csproj" />
+    <ProjectReference Include="..\GroceryStoreApi.Model\GroceryStoreApi.Model.csproj" />
+  </ItemGroup>
+</Project>
