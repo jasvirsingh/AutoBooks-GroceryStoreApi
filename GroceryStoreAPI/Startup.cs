@@ -5,12 +5,18 @@ using GroceryStore.Services;
 using GroceryStore.Services.Interfaces;
 using GroceryStoreAPI.Controllers;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using System;
+using System.Net;
+using System.Threading.Tasks;
 
 namespace GroceryStoreAPI
 {
@@ -115,19 +121,6 @@ namespace GroceryStoreAPI
                 app.UseDeveloperExceptionPage();
             }
 
-
-            app.UseExceptionHandler((builder) =>
-            {
-                builder.Run(async (context) =>
-                {
-                    //var exceptionHandlerFeature = context.Features.Get<IExceptionHandlerFeature>();
-                    //if (exceptionHandlerFeature?.Error != null)
-                    //{
-                    //    await OnException(context: context, ex: exceptionHandlerFeature.Error).ConfigureAwait(false);
-                    //}
-                });
-            });
-
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthentication();
@@ -140,36 +133,48 @@ namespace GroceryStoreAPI
                 // used in the post configure methods of the various configuration sections
                 this.ServiceProvider = app.ApplicationServices;
             });
+
+            app.UseExceptionHandler((builder) =>
+            {
+                builder.Run(async (context) =>
+                {
+                    var exceptionHandlerFeature = context.Features.Get<IExceptionHandlerFeature>();
+                    if (exceptionHandlerFeature?.Error != null)
+                    {
+                        await OnException(context: context, ex: exceptionHandlerFeature.Error).ConfigureAwait(false);
+                    }
+                });
+            });
         }
 
         /// <summary>Called when [exception].</summary>
         /// <param name="context">The context.</param>
         /// <param name="ex">The ex.</param>
         /// <returns></returns>
-        //private Task OnException(HttpContext context, Exception ex)
-        //{
-        //    try
-        //    {
-        //        context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+        private Task OnException(HttpContext context, Exception ex)
+        {
+            try
+            {
+                context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
 
-        //        var logger = context.RequestServices.GetService<ILogger<Startup>>();
+                var logger = context.RequestServices.GetService<ILogger<Startup>>();
 
-        //        if (ex is OperationCanceledException)
-        //        {
-        //            // Issuing non-standard status code when the client 
-        //            // has disconnected (This is based off of nginx)
-        //            context.Response.StatusCode = 499;
-        //            context.Features.Get<IHttpResponseFeature>().ReasonPhrase = "Client Closed Request";
-        //            logger.LogWarning(ex, "The client disconnected");
-        //        }
-        //        else
-        //        {
-        //            logger.LogError(ex, "An unhandled exception occured.");
-        //        }
-        //    }
-        //    catch (Exception) { }
+                if (ex is OperationCanceledException)
+                {
+                    // Issuing non-standard status code when the client 
+                    // has disconnected (This is based off of nginx)
+                    context.Response.StatusCode = 499;
+                    context.Features.Get<IHttpResponseFeature>().ReasonPhrase = "Client Closed Request";
+                    logger.LogWarning(ex, "The client disconnected");
+                }
+                else
+                {
+                    logger.LogError(ex, "An unhandled exception occured.");
+                }
+            }
+            catch (Exception) { }
 
-        //    return Task.CompletedTask;
-        //}
+            return Task.CompletedTask;
+        }
     }
 }

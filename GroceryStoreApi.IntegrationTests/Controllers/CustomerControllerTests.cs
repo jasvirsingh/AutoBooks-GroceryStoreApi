@@ -198,9 +198,16 @@ namespace GroceryStoreApi.UnitTests.Controllers
             });
 
             var controller = base.ServiceProvider.GetService<CustomerController>();
+            
+            //fetch valid customer name from file 
+            var getResponse = await controller.Get().ConfigureAwait(false);
+            var okResult = getResponse as OkObjectResult;
+            var actualCustomers = okResult.Value as IEnumerable<Customer>;
+            var id = actualCustomers.Max(c => c.Id);
+
             var updateCustomer = new Customer
             {
-                Id = 3,
+                Id = id,
                 Name = "Test-Customer" + Guid.NewGuid().ToString()
             };
 
@@ -208,9 +215,9 @@ namespace GroceryStoreApi.UnitTests.Controllers
             var response = await controller.Update(updateCustomer).ConfigureAwait(false);
 
             // assert
-            var okResult = response as OkObjectResult;
-            okResult.Should().NotBeNull();
-            okResult.StatusCode.Should().Be(200);
+            var okUpdateResult = response as OkObjectResult;
+            okUpdateResult.Should().NotBeNull();
+            okUpdateResult.StatusCode.Should().Be(200);
         }
 
         [Theory]
@@ -224,13 +231,14 @@ namespace GroceryStoreApi.UnitTests.Controllers
                 services.Replace(new ServiceDescriptor(typeof(IHttpContextAccessor), this.httpContextAccessorMock.Object));
             });
 
-            var controller = base.ServiceProvider.GetService<CustomerController>();
             var newCustomer = new Customer
             {
                 Name = name
             };
 
-            // act
+            var controller = base.ServiceProvider.GetService<CustomerController>();
+           
+           // act
             var response = await controller.Create(newCustomer).ConfigureAwait(false);
 
             // assert
@@ -256,10 +264,14 @@ namespace GroceryStoreApi.UnitTests.Controllers
             var controller = base.ServiceProvider.GetService<CustomerController>();
 
             // act
+
+            //get valid customer id from file 
             var getResponse = await controller.Get().ConfigureAwait(false);
             var okResult = getResponse as OkObjectResult;
             var actualCustomers = okResult.Value as IEnumerable<Customer>;
             int customerId = actualCustomers.Max(c => c.Id);
+
+            //call delete
             var deleteResponse = await controller.Delete(customerId).ConfigureAwait(false);
 
             // assert
