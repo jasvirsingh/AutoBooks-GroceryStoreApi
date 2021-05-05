@@ -9,7 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace GroceryStoreApi.UnitTests.Mock
+namespace GroceryStoreApi.IntegrationTests.Mock
 {
     public class MockHttpRequest : HttpRequest, IDisposable
     {

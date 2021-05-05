@@ -1,4 +1,4 @@
-﻿namespace GroceryStoreApi.UnitTests
+﻿namespace GroceryStoreApi.IntegrationTests
 {
     using GroceryStoreAPI;
     using Microsoft.AspNetCore.Hosting;

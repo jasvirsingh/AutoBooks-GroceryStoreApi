@@ -20,9 +20,11 @@ namespace GroceryStoreAPI.Controllers
 
         [HttpGet]
         [Route("customers")]
-        public async Task<IEnumerable<Customer>> Get()
+        public async Task<IActionResult> Get()
         {
-            return await _customerService.GetAll();
+            var result = await _customerService.GetAll();
+
+            return Ok(result);
         }
 
         [HttpGet]

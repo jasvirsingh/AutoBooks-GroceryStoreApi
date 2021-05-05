@@ -18,7 +18,7 @@ namespace GroceryStore.Services
         {
             _customerRepository = customerRepository;
         }
-        public async Task<IEnumerable<Customer>> GetAll()
+        public async Task<List<Customer>> GetAll()
         {
             var customers = await _customerRepository.GetAll();
 
@@ -26,7 +26,7 @@ namespace GroceryStore.Services
             {
                 Id = c.Id,
                 Name = c.Name
-            });
+            }).ToList();
         }
 
         public async Task<Customer> GetById(int id)
@@ -66,7 +66,6 @@ namespace GroceryStore.Services
 
             var dbCustomer = await _customerRepository.Add(new CustomerEntity
             {
-                Id = customer.Id,
                 Name = customer.Name
             });
 

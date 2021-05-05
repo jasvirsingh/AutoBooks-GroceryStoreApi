@@ -1,4 +1,4 @@
-﻿namespace GroceryStoreApi.UnitTests.Mock
+﻿namespace GroceryStoreApi.IntegrationTests.Mock
 {
     using Microsoft.AspNetCore.Http;
     using System.Net;

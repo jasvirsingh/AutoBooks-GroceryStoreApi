@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace GroceryStoreApi.UnitTests.Mock
+namespace GroceryStoreApi.IntegrationTests.Mock
 {
     public class MockRequestCookieCollection : IRequestCookieCollection
     {

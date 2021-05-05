@@ -1,4 +1,5 @@
 ﻿using GroceryStore.Data.Access.Interfaces;
+using GroceryStoreApi.Infrastructure;
 using GroceryStoreApi.Infrastructure.Exceptions;
 using Newtonsoft.Json;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace GroceryStore.Data
     public class CustomerRepository : ICustomerRepository
     {
         private const string dbFile = "database.json";
-        public async Task<IEnumerable<CustomerEntity>> GetAll()
+        public async Task<List<CustomerEntity>> GetAll()
         {
             var data = ReadDataFromFile();
 

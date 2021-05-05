@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroceryStoreApi.Model.Servi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroceryStoreApi.Infrastructure", "GroceryStoreApi.Infrastructure\GroceryStoreApi.Infrastructure.csproj", "{CBFB50AE-2687-44D3-861B-16D33635F175}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroceryStoreApi.IntegrationTests", "GroceryStoreApi.IntegrationTests\GroceryStoreApi.IntegrationTests.csproj", "{C4FCF410-5B51-414F-AB3A-8C6FAF558077}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{CBFB50AE-2687-44D3-861B-16D33635F175}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBFB50AE-2687-44D3-861B-16D33635F175}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBFB50AE-2687-44D3-861B-16D33635F175}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4FCF410-5B51-414F-AB3A-8C6FAF558077}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4FCF410-5B51-414F-AB3A-8C6FAF558077}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4FCF410-5B51-414F-AB3A-8C6FAF558077}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4FCF410-5B51-414F-AB3A-8C6FAF558077}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
