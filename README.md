@@ -7,3 +7,4 @@
  - Unit tests
  - Integration Tests
  - Using Json as a database (Sql repository is unimplemented)
+ - POSTMAN API endpoints collection file 
