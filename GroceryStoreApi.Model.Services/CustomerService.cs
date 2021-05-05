@@ -54,6 +54,13 @@ namespace GroceryStore.Services
         public async Task<Customer> Add(Customer customer)
         {
             var validations = new List<ValidationResult>();
+
+            if(customer == null)
+            {
+                validations.Add(new ValidationResult("Invalid request"));
+                throw new RqValidationFailedException(validations);
+            }
+
             if (string.IsNullOrWhiteSpace(customer.Name))
             {
                 validations.Add(new ValidationResult(Constants.CustomerNameRequiredMessage));
@@ -79,6 +86,13 @@ namespace GroceryStore.Services
         public async Task Update(Customer customer)
         {
             var validations = new List<ValidationResult>();
+
+            if (customer == null)
+            {
+                validations.Add(new ValidationResult("Invalid request"));
+                throw new RqValidationFailedException(validations);
+            }
+
             if (customer.Id <= 0)
             {
                 validations.Add(new ValidationResult(Constants.CustomerIdRequiredMessage));
