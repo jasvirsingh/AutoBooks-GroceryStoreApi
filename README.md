@@ -1,5 +1,5 @@
 
-# This project covers
+# This project includes
  - API listing all customers
  - API retrieving a customer
  - API adding a customer
