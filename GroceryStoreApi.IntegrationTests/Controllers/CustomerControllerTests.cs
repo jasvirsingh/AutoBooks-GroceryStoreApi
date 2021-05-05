@@ -185,7 +185,7 @@ namespace GroceryStoreApi.UnitTests.Controllers
             var validationException = badRequestResult.Value as ValidationResult;
             validationException.Should().NotBeNull();
             validationException.Message.Should().NotBeNullOrWhiteSpace();
-            validationException.Message.Should().Be("This customer already exists.");
+            validationException.Message.Should().Be(Constants.CustomerAlreadyExists);
         }
 
         [Fact]
@@ -241,7 +241,7 @@ namespace GroceryStoreApi.UnitTests.Controllers
             validationException.Should().NotBeNull();
             validationException.Should().HaveCount(1);
             validationException.First().Message.Should().NotBeNullOrWhiteSpace();
-            validationException.First().Message.Should().Be("Customer name is required");
+            validationException.First().Message.Should().Be(Constants.CustomerNameRequiredMessage);
         }
 
         [Fact]
@@ -292,9 +292,10 @@ namespace GroceryStoreApi.UnitTests.Controllers
             validationException.Should().NotBeNull();
             validationException.Should().HaveCount(1);
             validationException.First().Message.Should().NotBeNullOrWhiteSpace();
-            validationException.First().Message.Should().Be("Customer id is required");
+            validationException.First().Message.Should().Be(Constants.CustomerIdRequiredMessage);
         }
 
+        [Fact]
         public async Task delete_customer_should_return_not_found_error()
         {
             // arrange
@@ -309,13 +310,13 @@ namespace GroceryStoreApi.UnitTests.Controllers
             var response = await controller.Delete(444444).ConfigureAwait(false);
 
             // assert
-            var badRequestResult = response as BadRequestObjectResult;
-            badRequestResult.Should().NotBeNull();
-            badRequestResult.StatusCode.Should().Be(400);
-            var validationException = badRequestResult.Value as ValidationResult;
+            var notFoundResult = response as NotFoundObjectResult;
+            notFoundResult.Should().NotBeNull();
+            notFoundResult.StatusCode.Should().Be(404);
+            var validationException = notFoundResult.Value as ValidationResult;
             validationException.Should().NotBeNull();
             validationException.Message.Should().NotBeNullOrWhiteSpace();
-            validationException.Message.Should().Be("This customer not found.");
+            validationException.Message.Should().Be(Constants.CustomerNotFoundMessage);
         }
     }
 }

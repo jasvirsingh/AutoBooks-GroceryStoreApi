@@ -1,5 +1,6 @@
 ﻿using GroceryStore.Data;
 using GroceryStore.Data.Access.Interfaces;
+using GroceryStore.Data.Access.Repo;
 using GroceryStore.Services;
 using GroceryStore.Services.Interfaces;
 using GroceryStoreAPI.Controllers;
@@ -93,7 +94,7 @@ namespace GroceryStoreAPI
             services.AddTransient<ICustomerService, CustomerService>();
 
             // Repositories
-            services.AddTransient<ICustomerRepository, CustomerRepository>();
+            services.AddTransient<ICustomerRepository, CustomerJsonRepository>();
 
             // A pre-processor hook is provided to allow for unit tests to 
             // pre configure/replace services prior to the service provider being built

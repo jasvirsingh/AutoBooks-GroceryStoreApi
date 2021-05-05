@@ -61,9 +61,9 @@ namespace GroceryStoreAPI.Controllers
             {
                 return BadRequest(ex.Messages);
             }
-            catch (DuplicateCustomerException)
+            catch (DuplicateCustomerException ex)
             {
-                return BadRequest(new ValidationResult("This customer already exists."));
+                return BadRequest(new ValidationResult(ex.Message));
             }
         }
 
@@ -81,9 +81,9 @@ namespace GroceryStoreAPI.Controllers
             {
                 return BadRequest(ex.Messages);
             }
-            catch (CustomerNotFoundException)
+            catch (CustomerNotFoundException ex)
             {
-                return NotFound(new ValidationResult("This customer not found."));
+                return NotFound(new ValidationResult(ex.Message));
             }
         }
 
@@ -101,9 +101,9 @@ namespace GroceryStoreAPI.Controllers
             {
                 return BadRequest(ex.Messages);
             }
-            catch (CustomerNotFoundException)
+            catch (CustomerNotFoundException ex)
             {
-                return NotFound(new ValidationResult("This customer not found."));
+                return NotFound(new ValidationResult(ex.Message));
             }
         }
     }

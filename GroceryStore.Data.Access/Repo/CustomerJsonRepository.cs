@@ -2,14 +2,16 @@
 using GroceryStoreApi.Infrastructure;
 using GroceryStoreApi.Infrastructure.Exceptions;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace GroceryStore.Data
+namespace GroceryStore.Data.Access.Repo
 {
-    public class CustomerRepository : ICustomerRepository
+   public class CustomerJsonRepository : ICustomerRepository
     {
         private const string dbFile = "database.json";
         public async Task<List<CustomerEntity>> GetAll()
@@ -36,7 +38,7 @@ namespace GroceryStore.Data
                 // check for duplicate customer
                 if (data.Customers.Exists(c => c.Name.Equals(customerEntity.Name, System.StringComparison.OrdinalIgnoreCase)))
                 {
-                    throw new DuplicateCustomerException();
+                    throw new DuplicateCustomerException(Constants.CustomerAlreadyExists);
                 }
                 var maxId = data.Customers.Max(c => c.Id);
                 var nextId = maxId + 1;
@@ -68,7 +70,7 @@ namespace GroceryStore.Data
                 }
                 else
                 {
-                    throw new CustomerNotFoundException();
+                    throw new CustomerNotFoundException(Constants.CustomerNotFoundMessage);
                 }
             }
 
@@ -89,7 +91,7 @@ namespace GroceryStore.Data
                 }
                 else
                 {
-                    throw new CustomerNotFoundException();
+                    throw new CustomerNotFoundException(Constants.CustomerNotFoundMessage);
                 }
             }
 

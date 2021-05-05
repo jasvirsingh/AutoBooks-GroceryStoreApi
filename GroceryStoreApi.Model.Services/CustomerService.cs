@@ -34,7 +34,7 @@ namespace GroceryStore.Services
             var validations = new List<ValidationResult>();
             if( id <= 0)
             {
-                validations.Add(new ValidationResult("Customer id is required"));
+                validations.Add(new ValidationResult(Constants.CustomerIdRequiredMessage));
             }
             
             if(validations.Any())
@@ -56,7 +56,7 @@ namespace GroceryStore.Services
             var validations = new List<ValidationResult>();
             if (string.IsNullOrWhiteSpace(customer.Name))
             {
-                validations.Add(new ValidationResult("Customer name is required"));
+                validations.Add(new ValidationResult(Constants.CustomerNameRequiredMessage));
             }
 
             if (validations.Any())
@@ -81,11 +81,11 @@ namespace GroceryStore.Services
             var validations = new List<ValidationResult>();
             if (customer.Id <= 0)
             {
-                validations.Add(new ValidationResult("Customer id is required"));
+                validations.Add(new ValidationResult(Constants.CustomerIdRequiredMessage));
             }
             if (string.IsNullOrWhiteSpace(customer.Name))
             {
-                validations.Add(new ValidationResult("Customer name is required"));
+                validations.Add(new ValidationResult(Constants.CustomerNameRequiredMessage));
             }
 
             if (validations.Any())
@@ -105,7 +105,7 @@ namespace GroceryStore.Services
             var validations = new List<ValidationResult>();
             if (id <= 0)
             {
-                validations.Add(new ValidationResult("Customer id is required"));
+                validations.Add(new ValidationResult(Constants.CustomerIdRequiredMessage));
             }
             if (validations.Any())
             {
