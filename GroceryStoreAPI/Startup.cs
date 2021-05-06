@@ -102,7 +102,7 @@ namespace GroceryStoreAPI
             services.AddTransient<ICustomerService, CustomerService>();
 
             // Repositories
-            services.AddTransient<ICustomerRepository, CustomerJsonRepository>();
+            services.AddTransient<ICustomerRepository, CustomerSqlRepository>();
 
             // A pre-processor hook is provided to allow for unit tests to 
             // pre configure/replace services prior to the service provider being built

@@ -163,7 +163,7 @@ namespace GroceryStoreApi.UnitTest
                 .Verifiable();
 
             // act
-             await customerService.Update(new Customer{ Name = name, Id = id });
+             await customerService.Update(new Customer { Name = name, Id = id });
 
             // assert
            Xunit.Assert.True(true);

@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GroceryStore.Data\GroceryStore.Data.csproj" />
+    <ProjectReference Include="..\GroceryStoreApi.Data.Access.EFCore\GroceryStoreApi.Data.Access.EFCore.csproj" />
     <ProjectReference Include="..\GroceryStoreApi.Infrastructure\GroceryStoreApi.Infrastructure.csproj" />
   </ItemGroup>
 

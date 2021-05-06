@@ -6,6 +6,7 @@ using System.Net;
 using System.Threading.Tasks;
 using GroceryStoreApi.Infrastructure.Exceptions;
 using GroceryStoreApi.Infrastructure;
+using System;
 
 namespace GroceryStoreAPI.Controllers
 {
@@ -64,6 +65,10 @@ namespace GroceryStoreAPI.Controllers
             catch (DuplicateCustomerException ex)
             {
                 return BadRequest(new ValidationResult(ex.Message));
+            }
+            catch(Exception ex)
+            {
+                return BadRequest();
             }
         }
 
