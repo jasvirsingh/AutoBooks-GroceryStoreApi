@@ -62,6 +62,8 @@ namespace GroceryStoreAPI
                     o.JsonSerializerOptions.PropertyNameCaseInsensitive = false;
                 });
 
+            // Register the Swagger generator, defining 1 or more Swagger documents
+            services.AddSwaggerGen();
 
             // ---------------------------
             // Setting up API MVC Settings
@@ -125,6 +127,12 @@ namespace GroceryStoreAPI
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
